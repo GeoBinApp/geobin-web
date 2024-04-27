@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +12,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LandingPage extends StatefulWidget {
-  const LandingPage({super.key});
+  LandingPage({super.key});
+
+  String? error;
 
   @override
   State<LandingPage> createState() => _LandingPageState();
@@ -131,12 +135,32 @@ class _LandingPageState extends State<LandingPage> {
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
                             print('No user found for that email.');
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text("User Not Found! Please Sign Up!"),
+                            ));
+                            widget.error = "User Not Found! Please Sign Up!";
                           } else if (e.code == 'wrong-password') {
                             print('Wrong password provided for that user.');
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  Text("Wrong Password! Please Try Again!"),
+                            ));
+                            widget.error = "Wrong Password! Please Try Again!";
+                          } else if (e.code == 'invalid-credential') {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text("Please Login using Google!"),
+                            ));
+                            widget.error = "Please Login using Google!";
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text("Error! Please Try Again!"),
+                            ));
+                            widget.error = "Error! Please Try Again!";
                           }
+                          setState(() {});
                         }
-                        // Navigator.pushReplacement(context,
-                        //     MaterialPageRoute(builder: (context) => navBar()));
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => navBar()));
                       },
                       child: Image.asset(
                         "assets/images/login.png",
@@ -145,19 +169,48 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => navBar(
-                                      selectedIndex: 0,
-                                    )));
+                      onTap: () async {
+                        try {
+                          final credential = await FirebaseAuth.instance
+                              .createUserWithEmailAndPassword(
+                                  email: emailController.text,
+                                  password: passwordController.text);
+                        } on FirebaseAuthException catch (e) {
+                          if (e.code == 'email-already-in-use') {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  Text("User Already Exists! Please Login!"),
+                            ));
+                            widget.error = "User Already Exists! Please Login!";
+                            setState(() {});
+                            print(e.toString());
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text("Error! Please Try Again!"),
+                            ));
+                            widget.error = "Error! Please Try Again!";
+                            setState(() {});
+                            print(e.toString());
+                          }
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => navBar()));
+                        }
                       },
                       child: Image.asset(
                         "assets/images/signup.png",
                         width: MediaQuery.of(context).size.width * 0.3,
                         fit: BoxFit.cover,
                       ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      widget.error ?? "",
+                      style: GoogleFonts.averiaGruesaLibre(
+                          fontSize: 25, color: Colors.red),
                     ),
                     SizedBox(
                       height: 20,

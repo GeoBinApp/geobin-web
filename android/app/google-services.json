@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "37699792350",
+    "project_id": "geo-bin-sem4",
+    "storage_bucket": "geo-bin-sem4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37699792350:android:c874dadfc8054b3f93014f",
+        "android_client_info": {
+          "package_name": "com.example.geobin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37699792350-mk0rnv851bu8d4h6aipufme0kralrtd6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.geobin",
+            "certificate_hash": "86432684b3876e55082404b492aab02ad2df4d6b"
+          }
+        },
+        {
+          "client_id": "37699792350-nqmhl9ncog439788hklnli9572bgfk2m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClU1lLQIJtJyW9I7gvI7nrtzRyDxo6K-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37699792350-nqmhl9ncog439788hklnli9572bgfk2m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "37699792350-6kb06dhjfvupa1bmfkcmtke08g2a4fut.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.geobin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

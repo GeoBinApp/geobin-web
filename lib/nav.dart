@@ -46,6 +46,7 @@ class _navBarState extends State<navBar> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
+              mainAxisAlignment: MainAxisAlignment.center,
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
               gap: 1,
@@ -58,7 +59,7 @@ class _navBarState extends State<navBar> {
               tabs: [
                 GButton(
                   icon: Icons.delete,
-                  text: 'Bins',
+                  text: 'Trash Heaps',
                 ),
                 GButton(
                   icon: Icons.person,

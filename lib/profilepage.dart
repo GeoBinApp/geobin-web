@@ -114,38 +114,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   //5555555555555555555555225602289682181238/1/85
-
-                  InkWell(
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.edit_note_outlined,
-                                size: 50,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(
-                                "Edit Profile",
-                                style: GoogleFonts.autourOne(
-                                    fontSize: 30, color: Colors.black),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(

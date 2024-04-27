@@ -19,6 +19,7 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
+  <meta name="google-signin-client_id" content="37699792350-nqmhl9ncog439788hklnli9572bgfk2m.apps.googleusercontent.com">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -40,6 +41,25 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script> 
+<script> 
+  // paste the code copied  
+  // from Firebase SDK below. 
+  const firebaseConfig = {
+    apiKey: "AIzaSyAdomx6W3LZzqO0d4T80TerW-uE1s8IIQY",
+    authDomain: "geo-bin-sem4.firebaseapp.com",
+    projectId: "geo-bin-sem4",
+    storageBucket: "geo-bin-sem4.appspot.com",
+    messagingSenderId: "37699792350",
+    appId: "1:37699792350:web:8dd076e6a4f59f4093014f"
+  };
+
+  // Initialize Firebase 
+  const app = initializeApp(firebaseConfig); 
+    
+</script>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

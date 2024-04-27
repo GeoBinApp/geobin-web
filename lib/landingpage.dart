@@ -60,9 +60,6 @@ class _LandingPageState extends State<LandingPage> {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                SizedBox(
-                  height: 125,
-                ),
                 Column(
                   children: [
                     SizedBox(
@@ -143,17 +140,22 @@ class _LandingPageState extends State<LandingPage> {
                       },
                       child: Image.asset(
                         "assets/images/login.png",
-                        width: MediaQuery.of(context).size.width * 0.7,
+                        width: MediaQuery.of(context).size.width * 0.3,
                         fit: BoxFit.cover,
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        print("Hello");
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => navBar(
+                                      selectedIndex: 0,
+                                    )));
                       },
                       child: Image.asset(
                         "assets/images/signup.png",
-                        width: MediaQuery.of(context).size.width * 0.7,
+                        width: MediaQuery.of(context).size.width * 0.3,
                         fit: BoxFit.cover,
                       ),
                     ),

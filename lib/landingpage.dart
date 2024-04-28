@@ -132,6 +132,10 @@ class _LandingPageState extends State<LandingPage> {
                               .signInWithEmailAndPassword(
                                   email: emailController.text,
                                   password: passwordController.text);
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => navBar()));
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
                             print('No user found for that email.');
@@ -159,8 +163,6 @@ class _LandingPageState extends State<LandingPage> {
                           }
                           setState(() {});
                         }
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => navBar()));
                       },
                       child: Image.asset(
                         "assets/images/login.png",
@@ -175,6 +177,10 @@ class _LandingPageState extends State<LandingPage> {
                               .createUserWithEmailAndPassword(
                                   email: emailController.text,
                                   password: passwordController.text);
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => navBar()));
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'email-already-in-use') {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -192,10 +198,6 @@ class _LandingPageState extends State<LandingPage> {
                             setState(() {});
                             print(e.toString());
                           }
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => navBar()));
                         }
                       },
                       child: Image.asset(

@@ -177,6 +177,20 @@ class _LandingPageState extends State<LandingPage> {
                               .createUserWithEmailAndPassword(
                                   email: emailController.text,
                                   password: passwordController.text);
+                          User user = FirebaseAuth.instance.currentUser!;
+                          print(user.displayName);
+                          var doc =
+                              await FBCollections.users.doc(user.uid).get();
+                          if (doc.data() == null) {
+                            var data = {
+                              "name": user.displayName,
+                              "email": user.email,
+                              "pic": user.photoURL,
+                              "uid": user.uid,
+                              "posts": []
+                            };
+                            await FBCollections.users.doc(user.uid).set(data);
+                          }
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

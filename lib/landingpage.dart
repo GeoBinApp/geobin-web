@@ -8,6 +8,7 @@ import 'package:geobin/homepage.dart';
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:geobin/nav.dart';
 import 'package:geobin/profilepage.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -66,9 +67,6 @@ class _LandingPageState extends State<LandingPage> {
                   children: [
                 Column(
                   children: [
-                    SizedBox(
-                      height: 100,
-                    ),
                     Center(
                       child: Text(
                         "Welcome to",
@@ -85,42 +83,61 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                   ],
                 ),
+                // 1536*699.2
                 Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        cursorColor: Colors.white,
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                          iconColor: Colors.white,
-                          focusColor: Colors.white,
-                          hoverColor: Colors.white,
-                          suffixIconColor: Colors.white,
-                          hintText: 'Enter Email Address',
-                          suffixIcon: Icon(Icons.person),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                      child: SizedBox(
+                        width: Get.width * 0.6510416667,
+                        child: TextField(
+                          cursorColor: Colors.white,
+                          controller: emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: const InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25)),
+                            ),
+                            iconColor: Colors.white,
+                            focusColor: Colors.white,
+                            hoverColor: Colors.white,
+                            suffixIconColor: Colors.white,
+                            hintText: 'Enter Email Address',
+                            suffixIcon: Icon(Icons.person),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25)),
+                            ),
                           ),
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        cursorColor: Colors.white,
-                        controller: passwordController,
-                        keyboardType: TextInputType.visiblePassword,
-                        decoration: const InputDecoration(
-                          iconColor: Colors.white,
-                          focusColor: Colors.white,
-                          hoverColor: Colors.white,
-                          suffixIconColor: Colors.white,
-                          hintText: 'Enter Password',
-                          suffixIcon: Icon(Icons.lock),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                      child: SizedBox(
+                        width: Get.width * 0.6510416667,
+                        child: TextField(
+                          cursorColor: Colors.white,
+                          controller: passwordController,
+                          keyboardType: TextInputType.visiblePassword,
+                          decoration: const InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25)),
+                            ),
+                            iconColor: Colors.white,
+                            focusColor: Colors.white,
+                            hoverColor: Colors.white,
+                            suffixIconColor: Colors.white,
+                            hintText: 'Enter Password',
+                            suffixIcon: Icon(Icons.lock),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25)),
+                            ),
                           ),
                         ),
                       ),

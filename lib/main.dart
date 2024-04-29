@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:geobin/firebase_options.dart';
 import 'package:geobin/landingpage.dart';
 import 'package:geobin/nav.dart';
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User? user = FirebaseAuth.instance.currentUser;
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'GeoBin',
         theme: ThemeData(

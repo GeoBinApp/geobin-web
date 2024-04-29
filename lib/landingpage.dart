@@ -65,6 +65,9 @@ class _LandingPageState extends State<LandingPage> {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                SizedBox(
+                  height: Get.height * 0.0715102975,
+                ),
                 Column(
                   children: [
                     Center(
